@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Post:</h1>
+<form method="POST">
+    {% csrf_token %}
+        <label for="image_path">image_path:</label>
+        <input type="text" name="image_path">required><br> <br>
+
+        <label for="caption">caption:</label>
+        <input type="text" caption="Caption kiriting">required<br> <br>
+
+        <button type="submit">Post qo'shish</button>
+    </form>
+
+<ul>
+    {% if message %}
+        {{ message }}
+    {% else %}
+      {% for post in posts %}
+       <li>{{post}}</li>
+      {% endfor %}
+        <br>
+        </ul>
+        {% if previous == 0 %}
+            <a href="" style="color: blue">{{page}}</a> | <a href="">{{next}}</a>
+        {% else %}
+            <a href="">{{previous }}</a> | <a href="" style="color: blue">{{page}}</a> | <a href="">{{next}}</a>
+        {% endif %}
+    {% endif %}
+
+
+
+  {% endblock %}
+
+</body>
+</html>

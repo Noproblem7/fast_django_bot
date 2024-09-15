@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h1>Users:</h1>
+<ul>
+    {% if message %}
+        {{ message }}
+    {% else %}
+        {% for user in users %}
+         <li>{{user}}</li>
+         {% endfor %}
+        <br>
+        </ul>
+            {% if previous == 0 %}
+                <a href="" style="color: blue">{{page}}</a> | <a href="">{{next}}</a>
+            {% else %}
+                <a href="">{{ previous }}</a> | <a href="" style="color: blue">{{page}}</a> | <a href="">{{next}}</a>
+            {% endif %}
+    {% endif %}
+
+
+  {% endblock %}
+</body>
+</html>

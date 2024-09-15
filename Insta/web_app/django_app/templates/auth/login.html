@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Login:</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label for="username_or_email">username_or_email:</label>
+    <input type="text" name="username_or_email" required><br> <br>
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" required><br> <br>
+
+    <button type="submit">Login</button>
+</form>
+
+{% endblock %}
+</body>
+</html>
